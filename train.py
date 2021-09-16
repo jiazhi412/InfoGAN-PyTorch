@@ -143,9 +143,12 @@ for epoch in range(params['num_epochs']):
         # Updating discriminator and DHead
         optimD.zero_grad()
         # Real data
-        label = torch.full((b_size, ), real_label, device=device)
+        label = torch.full((b_size, ), real_label, dtype=torch.float32, device=device)
         output1 = discriminator(real_data)
         probs_real = netD(output1).view(-1)
+        # probs_real = probs_real.type(torch.LongTensor).to(device)
+        # print(probs_real.dtype)
+        # print(label.dtype)
         loss_real = criterionD(probs_real, label)
         # Calculate gradients.
         loss_real.backward()

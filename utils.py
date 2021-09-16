@@ -36,7 +36,7 @@ def noise_sample(n_dis_c, dis_c_dim, n_con_c, n_z, batch_size, device):
     n_dis_c : Number of discrete latent code.
     dis_c_dim : Dimension of discrete latent code.
     n_con_c : Number of continuous latent code.
-    n_z : Dimension of iicompressible noise.
+    n_z : Dimension of incompressible noise.
     batch_size : Batch Size
     device : GPU/CPU
     """
